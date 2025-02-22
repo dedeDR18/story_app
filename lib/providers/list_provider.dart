@@ -21,7 +21,12 @@ class ListProvider extends ChangeNotifier {
 
   StoriesResultState get resultState => _resultState;
 
-  Future<void> getStories() async {
+  Future<void> getStories([bool fromUploadScreen = false]) async {
+    if(fromUploadScreen){
+      stories.clear();
+      pageItems = 1;
+    }
+
     if (_isLoadingMore) {
       return;
     }

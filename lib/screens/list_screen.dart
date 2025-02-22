@@ -141,9 +141,9 @@ class _ListScreenState extends State<ListScreen> {
           widget.onCreateStory();
           final result =
               await context.read<PostUploadNotifier>().waitForResult();
-
+        
           if (result) {
-            context.read<ListProvider>().getStories();
+            context.read<ListProvider>().getStories(true);
           }
         },
       ),
